@@ -1,0 +1,26 @@
+#server:
+#  port: 88
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#  application:
+#    name: gulimall-gateway
+#
+#以上的配置信息都填写在配置中心中
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: query_route
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+        - id: qq_route
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
+
